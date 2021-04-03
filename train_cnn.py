@@ -1,6 +1,5 @@
 import cv2,os
 import numpy as np
-from tensorflow.keras.models import load_model
 from keras.utils import np_utils
 
 data=[]
@@ -9,7 +8,6 @@ img_size=100
 
 # Category 0 is mask
 categories=os.listdir("3244")
-#labels=[i for i in range(len(categories))]
 
 folder_path=r"3244\mask_train"
 img_names=os.listdir(folder_path)
@@ -61,7 +59,6 @@ model.add(Dense(50,activation='relu'))
 model.add(Dense(2,activation='softmax'))
 #The Final layer with two outputs for two categories
 
-#If your input images are greater than 128×128 you may choose to use a kernel size > 3 to help (1) learn larger spatial filters and (2) to help reduce volume size.
 
 model.compile(loss='categorical_crossentropy',optimizer='adam',metrics=['accuracy'])
 
@@ -87,4 +84,3 @@ history=model.fit(train_data,train_target,epochs=20,callbacks=[checkpoint],valid
 #plt.legend()
 #plt.show()
 
-#print(model.evaluate(test_data,test_target))
