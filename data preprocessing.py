@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import PIL.ImageOps
 
-data_path='data2'
-folder_path=os.path.join(data_path,"without_mask")
+data_path='data'
+folder_path=os.path.join(data_path,"unmask")
 img_names=os.listdir(folder_path)
 detector = mtcnn.MTCNN()
 
@@ -27,11 +27,8 @@ for img_name in img_names:
                 continue
             gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
             gray = cv2.resize(gray, (100,100))
-            #img_name = img_name[:4]
-            new_image_name = os.path.join(r'data2\unmask', img_name + str(count) + '.jpg')
+            new_image_name = os.path.join(r'data\unmask_train', img_name + str(count) + '.jpg')
             cv2.imwrite(new_image_name, gray)
-            #flip_image_name = os.path.join(r'dataset\unmask', img_name + str(count) + 'f.jpg')
-            #cv2.imwrite(flip_image_name, 255 - gray)
             count = count + 1
         img_num = img_num + 1
     except Exception as e:
