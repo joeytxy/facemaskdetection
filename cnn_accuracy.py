@@ -2,10 +2,10 @@ import cv2,os
 from tensorflow.keras.models import load_model
 import numpy as np
 
-model = load_model('model-018.model')
+model = load_model('model-007.model')
 
 
-folder_path=r"3244\mask_test"
+folder_path=r"data\mask_test"
 img_names=os.listdir(folder_path)
 count=0
 correct=0
@@ -21,7 +21,7 @@ for img_name in img_names:
     if (result[0][0] > result[0][1]):
         correct=correct+1
 
-folder_path=r"3244\unmask_test"
+folder_path=r"data\unmask_test"
 img_names=os.listdir(folder_path)
     
 for img_name in img_names:
