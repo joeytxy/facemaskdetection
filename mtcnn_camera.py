@@ -5,7 +5,7 @@ import numpy as np
 
 detector = MTCNN()
 source=cv2.VideoCapture(0)
-model = load_model('model-018.model')
+model = load_model('model-007.model')
 labels_dict={0:'MASK',1:'NO MASK'}
 
 while True: 
